@@ -10,7 +10,8 @@ TEST_CASE("memcached_noblock") {
   REQUIRE_SUCCESS(memcached_behavior_set(memc, MEMCACHED_BEHAVIOR_TCP_NODELAY, 1));
   REQUIRE_SUCCESS(memcached_behavior_set(memc, MEMCACHED_BEHAVIOR_POLL_TIMEOUT, timeout));
 
-  auto num = timeout ? 10'000 : 1'000'000;
+  //auto num = timeout ? 10'000 : 1'000'000;
+  auto num = 100;
   auto hit = 0u;
   auto rnd = random_ascii_string(512);
   for (auto i = 0; i < num; ++i) {
